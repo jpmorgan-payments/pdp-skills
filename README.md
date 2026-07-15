@@ -2,6 +2,14 @@
 
 A set of [Agent Skills](https://agentskills.io/) that give GitHub Copilot, Claude Code, Cursor, and other Agent harnesses procedural knowledge of J.P. Morgan's Payments Developer Portal (PDP) APIs. They provide a conversational experience that walks you from getting started with J.P. Morgan Payments APIs to integrating with new ones and expanding your integration — without you having to re-read the docs.
 
+## Disclaimer
+
+> **Use at Your Own Risk.** The code and instructions provided in this repository are intended for reference purposes only. The maintainers of this repository do not assume any responsibility for any issues, damages, or losses that may arise from the use of this code or instructions.
+
+These skills rely on AI agents to produce code, and **all generated code must be reviewed and verified by a qualified engineer before being deployed to production**. AI-generated code can contain subtle correctness, security, or compliance defects.
+
+---
+
 ## What's Inside
 
 This repository ships **three Agent Skills** that chain together. Each also works on its own.
@@ -33,7 +41,7 @@ More APIs (Tokenization, Reporting, and others) are planned for future releases.
 
 ## Installation
 
-The skills are written in the open [Agent Skills](https://agentskills.io/) format and load in any compatible Agent harness. Below are the install paths for the two primary harnesses — **Claude Code** and **GitHub Copilot**. For Cursor and other harnesses, see [docs/setup.html](docs/setup.html).
+The skills are written in the open [Agent Skills](https://agentskills.io/) format and load in any compatible Agent harness. Below are the install paths for the two primary harnesses — **Claude Code** and **GitHub Copilot**.
 
 ### Claude Code
 
@@ -82,29 +90,29 @@ Open your project in VS Code or a JetBrains IDE with GitHub Copilot Chat enabled
 
 > **Tip:** You can invoke a skill explicitly via its slash command (for example, `/jpm-integrations-get-started`, `/jpm-oauth`, or `/jpm-merchant-integrations`) — works the same in both Claude Code and GitHub Copilot. Otherwise, any prompt that matches the skill's `description` field triggers it automatically.
 
-For full setup instructions, per-harness details, and other Agent harnesses (Cursor and beyond), see [docs/setup.html](docs/setup.html).
-
 ---
 
-## Documentation
+## Usage
 
-Open the docs in a browser:
+### Full walkthrough (recommended)
 
-- [docs/index.html](docs/index.html) — Overview of what's included
-- [docs/demos.html](docs/demos.html) — Demos of the skills in action
-- [docs/setup.html](docs/setup.html) — Install instructions for each agent
-- [docs/usage.html](docs/usage.html) — Sample prompts and tips
-- [docs/limitations.html](docs/limitations.html) — What the skills can and cannot do, full disclaimers
+Start with the first skill — it hands off automatically through the full sequence:
 
----
+```text
+/jpm-integrations-get-started
+```
 
-## Disclaimer
+`jpm-integrations-get-started` → `jpm-oauth` → `jpm-merchant-integrations`
 
-> **Use at Your Own Risk.** The code and instructions provided in this repository are intended for reference purposes only. The maintainers of this repository do not assume any responsibility for any issues, damages, or losses that may arise from the use of this code or instructions.
+### Individual skills
 
-These skills rely on AI agents to produce code, and **all generated code must be reviewed and verified by a qualified engineer before being deployed to production**. AI-generated code can contain subtle correctness, security, or compliance defects.
+| Goal | Slash command |
+| ---- | ------------- |
+| Onboarding & `.env` setup | `/jpm-integrations-get-started` |
+| Generate OAuth module | `/jpm-oauth` |
+| Integrate Checkout or Online Payments | `/jpm-merchant-integrations` |
 
-See [docs/limitations.html](docs/limitations.html) for the full disclaimer.
+> Each skill checks its own prerequisites and will tell you what to run first if anything is missing.
 
 ---
 
@@ -117,14 +125,6 @@ See [docs/limitations.html](docs/limitations.html) for the full disclaimer.
 │   └── marketplace.json
 ├── .github/
 │   └── workflows/                    # daily GitHub traffic-metrics collection
-├── docs/                             # multi-page documentation site
-│   ├── index.html
-│   ├── demos.html
-│   ├── setup.html
-│   ├── usage.html
-│   ├── limitations.html
-│   └── styles.css
-├── metrics/                          # traffic snapshots (see metrics/README.md)
 ├── skills/                           # the three agent skills
 │   ├── jpm-integrations-get-started/
 │   ├── jpm-oauth/
@@ -139,7 +139,7 @@ See [docs/limitations.html](docs/limitations.html) for the full disclaimer.
 
 Only valid contributors are able to provide contributions to this repository.
 
-If this is your first time contributing to JPMC codebases you will need to fill out our Contribution Licence Agreement (CLA). More information can be found at: https://github.com/jpmorganchase/.github/blob/main/CONTRIBUTING.md
+If this is your first time contributing to JPMC codebases you will need to fill out our Contribution Licence Agreement (CLA). More information can be found at: <https://github.com/jpmorganchase/.github/blob/main/CONTRIBUTING.md>
 
 ---
 
