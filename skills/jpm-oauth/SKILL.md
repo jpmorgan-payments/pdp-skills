@@ -7,7 +7,7 @@ description: Implement J.P. Morgan Payments OAuth authentication (JWT signing + 
 
 Generate JWT-signing + access-token-exchange code that follows JPM's IDAnywhere OAuth contract. The generated module caches the access token until just before its server-set expiry, so the merchant's app reuses one token across many API calls instead of regenerating per request.
 
-This skill is typically invoked from the end of `jpm-onboarding-intake` (its Step 5). When run standalone, it gathers the same inputs interactively.
+This skill is typically invoked from the end of `jpm-integrations-get-started` (its Step 4). When run standalone, it gathers the same inputs interactively.
 
 ## Step 1 — Verify prerequisites
 
@@ -17,13 +17,11 @@ The merchant must have all four of:
 - **private key path** (PEM key paired with the certificate)
 - **SHA-1 thumbprint** of the cert (40 hex chars; colons optional — code will normalize)
 
-If you arrived from `jpm-onboarding-intake`, these are already in conversation context — use them.
+If you arrived from `jpm-integrations-get-started`, these are already in conversation context — use them.
 
 If invoked standalone:
 1. Ask the user where the credentials live: file paths, an `.env`, or in conversation.
-2. If anything is missing, tell the user to run `jpm-onboarding-intake` first and exit. Do **not** invent placeholder values.
-
-If credentials came from the intake's "paste in chat" branch and the temp files were already cleaned up, ask the user to save the cert and key to disk somewhere first — the generated code reads them from paths at runtime.
+2. If anything is missing, tell the user to run `jpm-integrations-get-started` first and exit. Do **not** invent placeholder values.
 
 ## Step 2 — Environment
 
@@ -66,7 +64,7 @@ If "Custom", prompt free text. Accept forms like `8h`, `30d`, `6mo`, `3600s`. Co
 
 ## Step 4 — Language and libraries
 
-If you arrived from `jpm-onboarding-intake` Step 5, the language and HTTP / JWT libraries the merchant chose are in conversation context. Confirm in one sentence ("Generating Python with `httpx` and `pyjwt` — sound right?") and proceed. If they say no, re-ask.
+If you arrived from `jpm-integrations-get-started` Step 4, the language and HTTP / JWT libraries the merchant chose are in conversation context. Confirm in one sentence ("Generating Python with `httpx` and `pyjwt` — sound right?") and proceed. If they say no, re-ask.
 
 If invoked standalone, run the same detection logic the intake skill uses: look in the user's CWD for `package.json`, `pyproject.toml`/`requirements.txt`, `pom.xml`, `build.gradle*`, `go.mod`, `Cargo.toml`, `Gemfile`, `composer.json`, `*.csproj`. If a manifest is found and contains an HTTP client and a JWT library, just announce. Otherwise prompt for the gaps only.
 
