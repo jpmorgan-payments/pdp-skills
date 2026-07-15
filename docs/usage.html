@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usage &amp; Prompts — JPM Payments Skills</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Conversational-flow blocks */
+    .flow {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-surface);
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .flow-trigger {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background: var(--color-code-bg);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .flow-trigger .label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .flow ol {
+      margin: 0.25rem 0 0.75rem;
+      padding-left: 1.5rem;
+    }
+
+    .flow ol li {
+      margin-bottom: 0.5rem;
+    }
+
+    .flow ol li .q {
+      font-weight: 600;
+    }
+
+    .flow ol li .opts {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .flow .outcome {
+      background: var(--color-primary-light);
+      border-left: 3px solid var(--color-primary);
+      padding: 0.6rem 0.85rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .flow .effort {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">JPM Payments Skills</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="demos.html">Demos</a>
+      <a href="setup.html">Setup &amp; Installation</a>
+      <a href="usage.html" class="active">Usage &amp; Prompts</a>
+      <a href="limitations.html">Limitations</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>Usage &amp; Prompts</h1>
+    <p class="subtitle">How the skills drive the conversation — and how to invoke the one you need.</p>
+
+    <h2>How the Skills Work</h2>
+    <p>The skills do the heavy lifting. You start with <strong>one short prompt</strong> — usually a slash command or a
+      single natural-language sentence — and the skill takes it from there.</p>
+
+    <p>From that point on, most of your input is <strong>picking options from a multiple-choice menu</strong> the skill
+      presents. You almost never have to write paragraphs. Each skill asks structured questions, generates code based on
+      your answers, and hands off to the next skill when you're ready.</p>
+
+    <div class="callout callout-block callout-info">
+      <strong>Minimal prompting by design.</strong> The skills are written to ask the right questions in the right
+      order. Your job is to pick the answers — the skill knows what to do with them.
+    </div>
+
+    <h2>Conversational Flow</h2>
+    <p>Here's what each skill walks you through. The triggers below are slash commands; you can also use natural
+      language (see <a href="#invoking">Invoking a Specific Skill</a> below).</p>
+
+    <h3><code>jpm-integrations-get-started</code></h3>
+    <p>The entry point. Use this when you're new to JPMorgan Payments or want the full guided experience.</p>
+
+    <div class="flow">
+      <div class="flow-trigger">
+        <span class="label">You type once</span>
+        /jpm-integrations-get-started
+      </div>
+
+      <p><strong>The skill then asks:</strong></p>
+      <ol>
+        <li>
+          <span class="q">"Do you acknowledge the disclaimer about AI-generated code?"</span>
+          <span class="opts">Options: Yes — proceed · No — exit</span>
+        </li>
+        <li>
+          <span class="q">"What are you trying to do with JPM Payments?"</span>
+          <span class="opts">Options: Migrate from another provider · Start a new JPM integration</span>
+        </li>
+        <li>
+          <span class="q">"Have you received your <code>clientId</code>, certificate, and private key from your J.P.
+            Morgan Relationship Manager?"</span>
+          <span class="opts">Options: Yes — I have all three · No — not yet</span>
+        </li>
+        <li>
+          <span class="q">(Automatic)</span>
+          <span class="opts">The skill detects your <code>.env</code> state and either appends missing keys or generates
+            a sample <code>.env.example</code> — no question asked unless input is needed.</span>
+        </li>
+        <li>
+          <span class="q">"Would you like me to implement the JPM OAuth flow now?"</span>
+          <span class="opts">Options: Yes — generate auth code · No — I'll do it later</span>
+        </li>
+      </ol>
+
+      <div class="outcome">
+        <strong>Outcome:</strong> A project ready to wire up authentication, with all the environment variables in
+        place. If you say yes to the last question, it hands off to <code>jpm-oauth</code> automatically.
+      </div>
+      <div class="effort">Typical user input after the trigger: 4 button clicks.</div>
+    </div>
+
+    <h3><code>jpm-oauth</code></h3>
+    <p>Generates a working OAuth module in your project. Use directly when you already have credentials.</p>
+
+    <div class="flow">
+      <div class="flow-trigger">
+        <span class="label">You type once</span>
+        /jpm-oauth Generate auth in my Python project
+      </div>
+
+      <p><strong>The skill then asks:</strong></p>
+      <ol>
+        <li>
+          <span class="q">(Automatic)</span>
+          <span class="opts">Verifies your credentials are in context (clientId, cert, key, thumbprint). If anything is
+            missing, it tells you what to fill in.</span>
+        </li>
+        <li>
+          <span class="q">"Which JPM environment are you targeting?"</span>
+          <span class="opts">Options: CAT (test) · PROD · Both — generate code that switches via env var</span>
+        </li>
+        <li>
+          <span class="q">"How long should JWTs be valid?"</span>
+          <span class="opts">Options (PROD): 8 hours (recommended) · 1 hour · Custom &nbsp;·&nbsp; Options (CAT): 6
+            months · 8 hours · Custom</span>
+        </li>
+        <li>
+          <span class="q">(Automatic)</span>
+          <span class="opts">Detects your language and HTTP/JWT libraries from your project manifest and announces the
+            choice. Asks only if it can't detect.</span>
+        </li>
+        <li>
+          <span class="q">"Where should I put the auth module?"</span>
+          <span class="opts">Options: Inside the project source tree · A new top-level folder · Custom path</span>
+        </li>
+        <li>
+          <span class="q">"Auth is in place. Want to integrate a JPM Payments API now?"</span>
+          <span class="opts">Options: Yes — pick an API to integrate (Checkout or Online Payments) · No — I'll come back
+            later</span>
+        </li>
+      </ol>
+
+      <div class="outcome">
+        <strong>Outcome:</strong> A language-idiomatic auth module that exports a cached <code>getAccessToken()</code>
+        function (or its language equivalent), ready to use with any JPM Payments API call. If you say yes to the last
+        question, it hands off to <code>jpm-merchant-integrations</code>.
+      </div>
+      <div class="effort">Typical user input after the trigger: 3 button clicks (most prompts auto-resolve).</div>
+    </div>
+
+    <h3><code>jpm-merchant-integrations</code></h3>
+    <p>Integrates an API in your project. Use directly when you already have auth wired up — for your first API or to
+      expand by adding another.</p>
+
+    <div class="flow">
+      <div class="flow-trigger">
+        <span class="label">You type once</span>
+        /jpm-merchant-integrations Integrate Checkout in my Node project
+      </div>
+
+      <p><strong>The skill then asks:</strong></p>
+      <ol>
+        <li>
+          <span class="q">(Automatic)</span>
+          <span class="opts">Confirms your auth module is ready to import. If not, points you back to
+            <code>jpm-oauth</code>.</span>
+        </li>
+        <li>
+          <span class="q">"Which API would you like to integrate first?"</span>
+          <span class="opts">Options: Checkout — drop-in payment UI · Online Payments — direct API processing</span>
+        </li>
+        <li>
+          <span class="q">"Briefly describe what you're building or migrating."</span>
+          <span class="opts">One free-text sentence — e.g. "a single-product checkout page" or "migrating from Stripe
+            Elements". Used to tailor the generated code.</span>
+        </li>
+        <li>
+          <span class="q">(Automatic)</span>
+          <span class="opts">Loads the relevant API reference, generates integration code that imports your auth module,
+            and provides a CAT smoke-test recipe.</span>
+        </li>
+        <li>
+          <span class="q">"That integration looks good. Want to add another JPM API now?"</span>
+          <span class="opts">Options: Yes — pick another · No — I'm done for now</span>
+        </li>
+      </ol>
+
+      <div class="outcome">
+        <strong>Outcome:</strong> A working integration in your project for the API you chose, with a clear path to
+        expand by adding more APIs over time.
+      </div>
+      <div class="effort">Typical user input after the trigger: 1 button click + 1 short sentence.</div>
+    </div>
+
+    <h2 id="invoking">Invoking a Specific Skill</h2>
+    <p>Each skill works on its own. You don't have to start at <code>jpm-integrations-get-started</code> — invoke the
+      one you need directly. There are two ways.</p>
+
+    <h3>Slash Command (Recommended)</h3>
+    <p>Explicit, deterministic, works the same in every Agent harness. Format: <code>/skill-name</code> followed by a
+      brief description of what you want.</p>
+
+    <div class="prompt-example">
+      <div class="label">Get Started</div>
+      "/jpm-integrations-get-started I'm migrating from Stripe"
+    </div>
+    <div class="prompt-example">
+      <div class="label">OAuth — Specific Stack</div>
+      "/jpm-oauth Generate auth in Python with httpx and pyjwt"
+    </div>
+    <div class="prompt-example">
+      <div class="label">OAuth — Both Environments</div>
+      "/jpm-oauth Generate code that switches between CAT and PROD via env var"
+    </div>
+    <div class="prompt-example">
+      <div class="label">Integrations — First API</div>
+      "/jpm-merchant-integrations Integrate Checkout with the drop-in UI"
+    </div>
+    <div class="prompt-example">
+      <div class="label">Integrations — Expand</div>
+      "/jpm-merchant-integrations Add Online Payments to my existing Checkout integration"
+    </div>
+    <div class="prompt-example">
+      <div class="label">Integrations — Specific Feature</div>
+      "/jpm-merchant-integrations Add 3-D Secure to my Online Payments card flow"
+    </div>
+
+    <h3>Natural Language</h3>
+    <p>Once you've used the skills a few times, you can skip the slash command and just describe what you want. The
+      agent matches your prompt to each skill's <code>description</code> field and loads the right one. Less reliable
+      than a slash command — fall back to slash if the wrong skill (or no skill) loads.</p>
+
+    <div class="prompt-example">
+      <div class="label">Triggers <code>jpm-integrations-get-started</code></div>
+      "I'm new to JPMorgan Payments — walk me through what I need."
+    </div>
+    <div class="prompt-example">
+      <div class="label">Triggers <code>jpm-oauth</code></div>
+      "Generate a JPM OAuth module in my project with token caching."
+    </div>
+    <div class="prompt-example">
+      <div class="label">Triggers <code>jpm-merchant-integrations</code></div>
+      "I have JPM auth set up. Now help me integrate Checkout."
+    </div>
+    <div class="prompt-example">
+      <div class="label">Triggers <code>jpm-merchant-integrations</code> (expansion)</div>
+      "Add JPM Online Payments to my existing Checkout integration."
+    </div>
+
+    <h2>Tips for Better Results</h2>
+    <ul>
+      <li><strong>Default to the slash command.</strong> It's the most reliable way to load the right skill —
+        natural-language matching can miss when your prompt is ambiguous.</li>
+      <li><strong>State your starting point in the trigger.</strong> Saying "I already have auth" or "I'm starting from
+        scratch" helps the skill skip phases you don't need.</li>
+      <li><strong>Mention your stack.</strong> Say "in Node.js" or "in Python with httpx" to get language-appropriate
+        code generation.</li>
+      <li><strong>Pick options as offered.</strong> The skills present multiple-choice menus for almost every decision —
+        you don't need to compose long answers.</li>
+      <li><strong>Be specific about the API.</strong> Mention "Checkout" or "Online Payments" to help the agent route to
+        the correct reference file.</li>
+      <li><strong>Smoke test in CAT first.</strong> Each integration includes a CAT test recipe. Run it before flipping
+        to PROD.</li>
+      <li><strong>If you get stuck</strong>, ask the agent "what skill am I in?" or "what step are we on?" — the skills
+        are written to handle re-entry and recovery questions cleanly.</li>
+    </ul>
+  </main>
+  <script>
+    document.querySelectorAll('.prompt-example').forEach(el => {
+      const btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', () => {
+        const text = el.textContent
+          .replace(el.querySelector('.label').textContent, '')
+          .replace('Copy', '')
+          .replace(/^[\s"]+|[\s"]+$/g, '');
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+          }, 1500);
+        });
+      });
+      el.appendChild(btn);
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demos — JPM Payments Skills</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .demo {
+      margin: 2rem 0 2.5rem;
+    }
+    .demo video {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      background: #000;
+      display: block;
+      margin: 1rem 0;
+    }
+    .demo .pitch {
+      background: var(--color-primary-light);
+      border-left: 3px solid var(--color-primary);
+      padding: 0.85rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .demo .pitch strong {
+      color: var(--color-primary);
+    }
+    .demo-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.75rem 0;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .tag.primary {
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .subtabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
+      margin: 1.75rem 0 0.5rem;
+    }
+    .subtab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 0.6rem 1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .subtab-btn:hover {
+      color: var(--color-text);
+    }
+    .subtab-btn.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+    }
+    .subtab-panel {
+      display: none;
+    }
+    .subtab-panel.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">JPM Payments Skills</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="demos.html" class="active">Demos</a>
+      <a href="setup.html">Setup &amp; Installation</a>
+      <a href="usage.html">Usage &amp; Prompts</a>
+      <a href="limitations.html">Limitations</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>Demos</h1>
+    <p class="subtitle">Watch the skills build and migrate working ecommerce integrations, end to end, in minutes.</p>
+
+    <p>The demos below are grouped into two tracks. <strong>Integrations</strong> covers merchants coming to J.P. Morgan from the outside — a greenfield build from an empty project, or a migration off a third-party gateway like Stripe. <strong>Orbital Migrations</strong> covers merchants already running on a legacy JPM product (Orbital or HPS) who are moving to a modern JPM Payments API. In every case the skills drive the conversation, generate the OAuth module, and wire up the target JPM Payments API.</p>
+
+    <div class="callout callout-block callout-info">
+      <strong>What you're seeing:</strong> a project opened in an Agent harness, driven entirely by the skills' conversational flow. The merchant types one short prompt to start; everything after is multiple-choice answers and the skill generating code in the merchant's project. The generated code is a starting point — every file should be reviewed by a qualified engineer before being deployed (see <a href="limitations.html">limitations &amp; disclaimers</a>).
+    </div>
+
+    <div class="subtabs" role="tablist">
+      <button class="subtab-btn active" role="tab" data-target="tab-integrations">Integrations</button>
+      <button class="subtab-btn" role="tab" data-target="tab-orbital">Orbital Migrations</button>
+    </div>
+
+    <section id="tab-integrations" class="subtab-panel active" role="tabpanel">
+      <p>The <strong>Integrations</strong> track is for merchants coming to J.P. Morgan from outside — whether they're starting from an empty codebase or migrating off a third-party gateway. The skills confirm credentials, generate the OAuth module, and wire up the target JPM Payments API, so the merchant can stand up a working integration and validate in CAT in minutes.</p>
+
+      <h2>Greenfield Merchandise Store</h2>
+
+      <div class="demo">
+        <div class="demo-meta">
+          <span class="tag primary">Greenfield</span>
+          <span class="tag">Merchandise / D2C apparel</span>
+          <span class="tag">Checkout</span>
+          <span class="tag">Google Pay</span>
+        </div>
+
+        <p>A direct-to-consumer brand launching a branded merch store wants to start selling online fast. They've finished the paperwork side of JPM and have credentials, but their codebase is empty. They open their Agent harness, invoke <code>/jpm-integrations-get-started</code>, and the skills do the rest — confirming credentials, generating an OAuth module with token caching, scaffolding the storefront, and integrating JPM Checkout with Google Pay.</p>
+
+        <video controls preload="metadata">
+          <source src="assets/Greenfield_merch_store_with_google_pay.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="assets/Greenfield_merch_store_with_google_pay.mp4">Download the video</a>.
+        </video>
+
+        <div class="pitch">
+          <strong>Why it matters:</strong> what would normally take a small engineering team several days — reading API docs, picking libraries, getting auth right, wiring Checkout, smoke-testing in CAT — happens in a few minutes of guided conversation. The merchant focuses on their brand and product; the skills handle the JPM API surface.
+        </div>
+      </div>
+
+      <h2>Brownfield Stripe Migration</h2>
+
+      <div class="demo">
+        <div class="demo-meta">
+          <span class="tag primary">Migration</span>
+          <span class="tag">Stripe &rarr; JPM</span>
+          <span class="tag">Merchandise / D2C apparel</span>
+          <span class="tag">Checkout</span>
+        </div>
+
+        <p>A merchant already selling online through Stripe wants to move their payments to J.P. Morgan without rebuilding their store. They have an existing codebase and a working checkout page — the skills guide them through generating OAuth and swapping the Stripe payment flow for JPM Checkout, mapping the concepts they already know from Stripe Elements onto the JPM API surface. The rest of the storefront stays exactly as it is.</p>
+
+        <video controls preload="metadata">
+          <source src="assets/Brownfield_merch_store_stripe_migration.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="assets/Brownfield_merch_store_stripe_migration.mp4">Download the video</a>.
+        </video>
+
+        <div class="pitch">
+          <strong>Why it matters:</strong> moving off an incumbent gateway is usually a manual, risky rewrite. The skills encode JPM's documented patterns and generate the OAuth and Checkout wiring in the merchant's existing project, so switching processors becomes a guided change instead of a multi-week project. The output is a starting point, not production code — every generated file should be reviewed by a qualified engineer before deployment (see <a href="limitations.html">limitations &amp; disclaimers</a>).
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-orbital" class="subtab-panel" role="tabpanel">
+      <p>The <strong>Orbital Migrations</strong> track is for merchants already running on a legacy J.P. Morgan product — the Orbital gateway or the Hosted Payments Solution (HPS) — who want to move to a modern JPM Payments API. Rather than a rip-and-replace rewrite, the skills map the concepts the merchant already knows from the legacy product onto the new API surface and generate the OAuth and integration wiring.</p>
+
+      <h2>Orbital to Online Payments Migration</h2>
+
+      <div class="demo">
+        <div class="demo-meta">
+          <span class="tag primary">Migration</span>
+          <span class="tag">Orbital &rarr; Online Payments</span>
+          <span class="tag">Online Payments</span>
+        </div>
+
+        <p>A merchant running on the legacy Orbital gateway wants to move to JPM's modern Online Payments API. Rather than a rip-and-replace rewrite, the skills guide them through generating OAuth and re-wiring their payment flow to the Online Payments endpoints — mapping the concepts they already know from Orbital onto the new API surface. Same conversational experience, focused on migration instead of greenfield.</p>
+
+        <video controls preload="metadata">
+          <source src="assets/orbital_to_online_payments.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="assets/orbital_to_online_payments.mp4">Download the video</a>.
+        </video>
+
+        <div class="pitch">
+          <strong>Why it matters:</strong> migrations off legacy gateways are usually slow, risky, and manual. The skills encode the target API's documented patterns and generate the OAuth and Online Payments wiring, so the merchant can move off Orbital and validate in CAT in minutes. The output is a starting point, not production code — every generated file should be reviewed by a qualified engineer before deployment (see <a href="limitations.html">limitations &amp; disclaimers</a>).
+        </div>
+      </div>
+
+      <h2>HPS to Checkout Migration</h2>
+
+      <div class="demo">
+        <div class="demo-meta">
+          <span class="tag primary">Migration</span>
+          <span class="tag">Hosted Payments &rarr; Checkout</span>
+          <span class="tag">Checkout</span>
+        </div>
+
+        <p>A merchant on the legacy Hosted Payments Solution (HPS) moving to JPM Checkout. The skills walk them through generating OAuth and integrating Checkout into their existing storefront, replacing the older hosted-payment flow with the modern Checkout experience — including wallet options like Google Pay. Different legacy product, same guided path to a modern integration.</p>
+
+        <video controls preload="metadata">
+          <source src="assets/hps_to_checkout.mp4" type="video/mp4">
+          Your browser does not support embedded video. <a href="assets/hps_to_checkout.mp4">Download the video</a>.
+        </video>
+
+        <div class="pitch">
+          <strong>Why it matters:</strong> the skills aren't tied to a single starting point or product. Greenfield builds and legacy migrations (Orbital, HPS, and others) all run through the same conversational flow. The skills' scope is limited to integrating JPM Payments APIs into the merchant's project; they don't build the rest of the business logic.
+        </div>
+      </div>
+    </section>
+
+    <h2>What These Demos Show</h2>
+    <ul>
+      <li><strong>Time-to-first-CAT-transaction collapses from days to minutes.</strong> No reading the JPM API reference cover-to-cover, no copy-pasting OAuth boilerplate, no field-constraint trial and error.</li>
+      <li><strong>Minimal prompting.</strong> The merchant types one short prompt to kick off the conversation; the skill drives the rest with multiple-choice questions.</li>
+      <li><strong>Best-practice patterns by default.</strong> The generated OAuth module caches access tokens with an in-flight mutex (avoiding the per-request token regen anti-pattern), and the Checkout integration imports the auth module rather than re-implementing it. <strong>The output is a starting point, not production code</strong> — every generated file must be reviewed by a qualified engineer before deployment. See the <a href="limitations.html">limitations &amp; disclaimers</a>.</li>
+      <li><strong>Works across more than the demos shown.</strong> D2C merchandise and retail are two examples — the skills don't hard-code a vertical and adapt to what the merchant describes (subscription commerce, marketplaces, B2B, ticketing, donations, services, and others). <em>Scope:</em> integrating JPMorgan Payments APIs into the merchant's project. The skills don't build the rest of the business logic — that's still the merchant's work.</li>
+      <li><strong>The merchant stays in their own codebase.</strong> Nothing leaves their machine. Credentials stay in their <code>.env</code>.</li>
+    </ul>
+
+    <h2>Talking Points for Sales</h2>
+    <ul>
+      <li>"From credentials to a working CAT checkout in the time it takes to drink a coffee."</li>
+      <li>"The skills encode JPM's documented API patterns and surface them as the agent builds — so engineers learn the right way as they ship."</li>
+      <li>"Same conversation across ecommerce verticals — D2C merch, retail, subscription, marketplace, B2B, ticketing, and more. Scope is integrating our APIs; the merchant still owns their business logic."</li>
+      <li>"The merchant owns the code. We don't host anything; we accelerate them."</li>
+      <li>"Best-practice patterns built in — token caching, field validation, a CAT-before-PROD smoke test recipe — so the integration starts on the right footing. The output is a starting point, not production code; every generated file should be reviewed by a qualified engineer before deployment."</li>
+    </ul>
+
+    <p>Want to try it yourself? See <a href="setup.html">Setup &amp; Installation</a> to install the skills in your Agent harness, then <a href="usage.html">Usage &amp; Prompts</a> for the conversational flow you'll see in these demos.</p>
+  </main>
+
+  <script>
+    document.querySelectorAll('.subtab-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.dataset.target;
+        document.querySelectorAll('.subtab-btn').forEach(function (b) {
+          b.classList.toggle('active', b === btn);
+        });
+        document.querySelectorAll('.subtab-panel').forEach(function (panel) {
+          panel.classList.toggle('active', panel.id === target);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
