@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "J.P. Morgan Payments developer-experience marketplace. Distributes the jpm-payments-skills plugin (onboarding intake, OAuth code generation, and Checkout / Online Payments integration) for Claude Code and GitHub Copilot.",
   "owner": {
-    "name": "J.P. Morgan Payments",
-    "email": "jpmc-pdp-skills@users.noreply.github.com"
+    "name": "J.P. Morgan Payments"
   },
   "plugins": [
     {
