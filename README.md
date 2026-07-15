@@ -1,6 +1,6 @@
 # J.P. Morgan Payments Developer Portal — Merchant Integrations Agent Skills
 
-A set of [Agent Skills](https://agentskills.io/) that give GitHub Copilot, Claude Code, Cursor, and other Agent harnesses procedural knowledge of J.P. Morgan's Payments Developer Portal (PDP) APIs. They provide a conversational experience that walks you from getting started with JPMorgan Payments APIs to integrating with new ones and expanding your integration — without you having to re-read the docs.
+A set of [Agent Skills](https://agentskills.io/) that give GitHub Copilot, Claude Code, Cursor, and other Agent harnesses procedural knowledge of J.P. Morgan's Payments Developer Portal (PDP) APIs. They provide a conversational experience that walks you from getting started with J.P. Morgan Payments APIs to integrating with new ones and expanding your integration — without you having to re-read the docs.
 
 ## What's Inside
 
@@ -8,7 +8,7 @@ This repository ships **three Agent Skills** that chain together. Each also work
 
 | Skill | Path | Purpose |
 | ----- | ---- | ------- |
-| `jpm-integrations-get-started` | [`skills/jpm-integrations-get-started/`](skills/jpm-integrations-get-started/SKILL.md) | Get started with JPMorgan Payments — disclaimer acknowledgment, goal triage, credential check, and `.env` setup |
+| `jpm-integrations-get-started` | [`skills/jpm-integrations-get-started/`](skills/jpm-integrations-get-started/SKILL.md) | Get started with J.P. Morgan Payments — disclaimer acknowledgment, goal triage, credential check, and `.env` setup |
 | `jpm-oauth` | [`skills/jpm-oauth/`](skills/jpm-oauth/SKILL.md) | Generates a working OAuth (JWT signing + IDAnywhere token exchange) module in your project, with token caching baked in |
 | `jpm-merchant-integrations` | [`skills/jpm-merchant-integrations/`](skills/jpm-merchant-integrations/SKILL.md) | Walks you through one API integration at a time — Checkout or Online Payments — and helps you expand by adding new APIs over time |
 
@@ -115,15 +115,34 @@ See [docs/limitations.html](docs/limitations.html) for the full disclaimer.
 ├── .claude-plugin/                   # Claude Code plugin manifest + marketplace listing
 │   ├── plugin.json
 │   └── marketplace.json
+├── .github/
+│   └── workflows/                    # daily GitHub traffic-metrics collection
 ├── docs/                             # multi-page documentation site
 │   ├── index.html
+│   ├── demos.html
 │   ├── setup.html
 │   ├── usage.html
 │   ├── limitations.html
 │   └── styles.css
+├── metrics/                          # traffic snapshots (see metrics/README.md)
 ├── skills/                           # the three agent skills
 │   ├── jpm-integrations-get-started/
 │   ├── jpm-oauth/
 │   └── jpm-merchant-integrations/
+├── LICENSE
 └── README.md
 ```
+
+---
+
+## Contributing to JPMC Projects
+
+Only valid contributors are able to provide contributions to this repository.
+
+If this is your first time contributing to JPMC codebases you will need to fill out our Contribution Licence Agreement (CLA). More information can be found at: https://github.com/jpmorganchase/.github/blob/main/CONTRIBUTING.md
+
+---
+
+## License
+
+This project is licensed under the Apache License 2.0 — see the [LICENSE](LICENSE) file for details.

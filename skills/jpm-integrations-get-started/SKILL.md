@@ -1,11 +1,11 @@
 ---
 name: jpm-integrations-get-started
-description: Triage and credential intake for merchants starting with JPM Payments APIs. Use this skill when the user wants to migrate from another payment provider to JPM or start a new JPM integration from scratch. Sets up a .env file (generated fresh or updated in place) with the clientId, certificate path, and private key path that downstream skills will read at runtime. Does not persist credential contents.
+description: Triage and credential intake for merchants starting with J.P. Morgan Payments APIs. Use this skill when the user wants to migrate from another payment provider to JPM or start a new JPM integration from scratch. Sets up a .env file (generated fresh or updated in place) with the clientId, certificate path, and private key path that downstream skills will read at runtime. Does not persist credential contents.
 ---
 
 # JPM Integrations — Get Started
 
-Run a conversational intake for merchants getting started with JPMorgan Payments APIs. Follow the steps in order. Use `AskUserQuestion` for every multiple-choice question.
+Run a conversational intake for merchants getting started with J.P. Morgan Payments APIs. Follow the steps in order. Use `AskUserQuestion` for every multiple-choice question.
 
 ## Disclaimer (show before Step 1)
 
@@ -25,7 +25,7 @@ If **No**, exit this skill.
 ## Step 1 — Triage intent
 
 Ask:
-- Question: "What are you trying to do with JPM Payments?"
+- Question: "What are you trying to do with J.P. Morgan Payments?"
 - Header: "Goal"
 - Options:
   - "Migrate from another provider" — moving from a non-JPM processor (Stripe, Adyen, etc.)
