@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup &amp; Installation — JPM Payments Skills</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">JPM Payments Skills</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="demos.html">Demos</a>
+      <a href="setup.html" class="active">Setup &amp; Installation</a>
+      <a href="usage.html">Usage &amp; Prompts</a>
+      <a href="limitations.html">Limitations</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>Setup &amp; Installation</h1>
+    <p class="subtitle">Install the skills for your agent in under a minute.</p>
+
+    <h2 id="claude-code">Claude Code</h2>
+
+    <p>The fastest path is the Claude Code plugin manager — this repository ships as a plugin with a marketplace
+      manifest at the root.</p>
+
+    <h3>Plugin Install (Recommended)</h3>
+    <p>Inside Claude Code, run:</p>
+    <pre><code>/plugin marketplace add &lt;github-repo-url&gt;
+/plugin install jpm-payments-skills@jpm-payments-skills</code></pre>
+
+    <p>Replace <code>&lt;github-repo-url&gt;</code> with this repository's URL. After install, run <code>/plugin</code>
+      to confirm it's listed and <code>/skills</code> to see the three <code>jpm-*</code> skills.</p>
+
+    <p>To update later:</p>
+    <pre><code>/plugin update jpm-payments-skills</code></pre>
+
+    <h3>Manual Install (Alternative)</h3>
+    <p>If you'd rather copy the skills directly into your project, Claude Code auto-discovers any skills under
+      <code>.claude/skills/</code>:
+    </p>
+    <pre><code>your-project/
+├── .claude/
+│   └── skills/
+│       ├── jpm-integrations-get-started/
+│       ├── jpm-oauth/
+│       └── jpm-merchant-integrations/
+└── ...</code></pre>
+
+    <p>Clone this repository and copy the skill folders:</p>
+    <pre><code>git clone &lt;github-repo-url&gt; /tmp/jpm-skills
+mkdir -p .claude/skills
+cp -r /tmp/jpm-skills/skills/jpm-* .claude/skills/</code></pre>
+
+    <p>For a user-level install (every Claude Code project sees the skills), copy into <code>~/.claude/skills/</code>
+      instead.</p>
+
+    <div class="callout callout-block callout-info">
+      <strong>Tip:</strong> You can invoke any skill explicitly via its slash command (for example,
+      <code>/jpm-integrations-get-started</code>) to force it to load regardless of prompt content. Otherwise, any
+      prompt that matches the skill's <code>description</code> field triggers it automatically.
+    </div>
+
+    <h2 id="copilot">GitHub Copilot</h2>
+
+    <p>GitHub Copilot loads agent skills from <code>.github/skills/</code> at the root of your project. No extra
+      configuration is needed.</p>
+
+    <h3>Steps</h3>
+    <ol>
+      <li>
+        <strong>Copy the skill folders</strong> into your project:
+        <pre><code>your-project/
+├── .github/
+│   └── skills/
+│       ├── jpm-integrations-get-started/
+│       ├── jpm-oauth/
+│       └── jpm-merchant-integrations/
+└── ...</code></pre>
+      </li>
+      <li><strong>Open your project</strong> in VS Code or a JetBrains IDE with GitHub Copilot Chat enabled.</li>
+      <li><strong>Start asking questions.</strong> Copilot loads the relevant skill automatically when your prompt
+        matches the skill's description.</li>
+    </ol>
+
+    <p>Clone-and-copy commands:</p>
+    <pre><code>git clone &lt;github-repo-url&gt; /tmp/jpm-skills
+mkdir -p .github/skills
+cp -r /tmp/jpm-skills/skills/jpm-* .github/skills/</code></pre>
+
+    <div class="callout callout-block callout-info">
+      <strong>Tip:</strong> You can invoke a skill explicitly via its slash command (for example,
+      <code>/jpm-merchant-integrations</code>) which forces it to load. Alternatively, any prompt that matches the
+      skill's <code>description</code> field triggers it automatically.
+    </div>
+
+    <h2 id="cursor">Cursor</h2>
+
+    <p>Cursor reads the same Agent Skills open format. Place the skill folders in <code>.cursor/skills/</code> at
+      the root of your project:</p>
+    <pre><code>your-project/
+├── .cursor/
+│   └── skills/
+│       ├── jpm-integrations-get-started/
+│       ├── jpm-oauth/
+│       └── jpm-merchant-integrations/
+└── ...</code></pre>
+
+    <p>Clone-and-copy commands:</p>
+    <pre><code>git clone &lt;github-repo-url&gt; /tmp/jpm-skills
+mkdir -p .cursor/skills
+cp -r /tmp/jpm-skills/skills/jpm-* .cursor/skills/</code></pre>
+
+    <p>Restart Cursor or reload the workspace so the agent picks up the new skills, then trigger one with a
+      natural-language prompt.</p>
+
+    <div class="callout callout-block callout-info">
+      <strong>Note:</strong> Cursor's support for the Agent Skills open format is evolving. If your version doesn't
+      recognize
+      the directory above, refer to the current Cursor documentation for the canonical path. The <code>SKILL.md</code>
+      contents are portable; only the directory the harness scans differs.
+    </div>
+
+    <h2 id="other">Other Agent Harnesses</h2>
+
+    <p>The skills are written in the open <a href="https://agentskills.io/" target="_blank" rel="noopener">Agent
+        Skills</a>
+      format — a <code>SKILL.md</code> file with YAML frontmatter (<code>name</code>, <code>description</code>) plus
+      markdown body. Any Agent harness that supports this format can load and use these skills.</p>
+
+    <h3>Generic Install Steps</h3>
+    <ol>
+      <li>Clone this repository.</li>
+      <li>Copy the <code>skills/jpm-*/</code> directories into the location your harness scans for agent skills (consult
+        your harness's documentation for the canonical path).</li>
+      <li>Restart the harness or reload the workspace so it picks up the new skills.</li>
+      <li>Trigger a skill with its slash command (<code>/jpm-integrations-get-started</code>, <code>/jpm-oauth</code>,
+        or
+        <code>/jpm-merchant-integrations</code>), or with a natural-language prompt that matches its description.
+      </li>
+    </ol>
+
+    <p>Each skill folder is self-contained — the SKILL.md plus optional <code>references/</code>,
+      <code>templates/</code>,
+      <code>examples/</code>, and <code>scripts/</code> subfolders that the skill points to during execution. As long as
+      your harness can read SKILL.md and follow links to local files, everything in the directory is portable.
+    </p>
+
+    <div class="callout callout-block callout-info">
+      <strong>Note:</strong> If your harness doesn't auto-discover skills from a directory, you can pass the SKILL.md
+      content directly as system context or instructions. The conversational flow still works — only the auto-trigger
+      behavior may differ from native harnesses.
+    </div>
+
+  </main>
+</body>
+
+</html>

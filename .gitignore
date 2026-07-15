@@ -137,3 +137,5 @@ target
 
 application-local.yml
 .idea
+# Demo/screen-recording videos (carried from internal repo)
+*.mp4
