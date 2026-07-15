@@ -41,13 +41,21 @@ More APIs (Tokenization, Reporting, and others) are planned for future releases.
 
 ## Installation
 
-The skills are written in the open [Agent Skills](https://agentskills.io/) format and load in any compatible Agent harness. Below are the install paths for the two primary harnesses — **Claude Code** and **GitHub Copilot**.
+The skills are written in the open [Agent Skills](https://agentskills.io/) format and load in any compatible Agent harness. Below are the install paths:
+
+### Skills CLI 
+
+[`npx skills`](https://www.skills.sh/) detects your Agent harness and installs into the right directory automatically:
+
+```bash
+npx skills add jpmorgan-payments/pdp-skills
+```
 
 ### Claude Code
 
 The fastest path is the Claude Code plugin manager — this repository ships as a plugin with a marketplace manifest at the root.
 
-#### Plugin install (recommended)
+#### Plugin install 
 
 Inside Claude Code, run:
 
@@ -64,7 +72,7 @@ To update later:
 /plugin update jpm-payments-skills
 ```
 
-#### Manual install (alternative)
+#### Manual install 
 
 If you'd rather copy the skills directly into your project, Claude Code auto-discovers any skills under `.claude/skills/`:
 
