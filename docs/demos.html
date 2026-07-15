@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demos — JPM Payments Skills</title>
+  <title>Demos — J.P. Morgan Payments Skills</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     .demo {
@@ -88,7 +88,7 @@
 
 <body>
   <aside class="sidebar">
-    <a href="index.html" class="sidebar-brand">JPM Payments Skills</a>
+    <a href="index.html" class="sidebar-brand">J.P. Morgan Payments Skills</a>
     <nav>
       <a href="index.html">Home</a>
       <a href="demos.html" class="active">Demos</a>
@@ -102,7 +102,7 @@
     <h1>Demos</h1>
     <p class="subtitle">Watch the skills build and migrate working ecommerce integrations, end to end, in minutes.</p>
 
-    <p>The demos below are grouped into two tracks. <strong>Integrations</strong> covers merchants coming to J.P. Morgan from the outside — a greenfield build from an empty project, or a migration off a third-party gateway like Stripe. <strong>Orbital Migrations</strong> covers merchants already running on a legacy JPM product (Orbital or HPS) who are moving to a modern JPM Payments API. In every case the skills drive the conversation, generate the OAuth module, and wire up the target JPM Payments API.</p>
+    <p>The demos below are grouped into two tracks. <strong>Integrations</strong> covers merchants coming to J.P. Morgan from the outside — a greenfield build from an empty project, or a migration off a third-party gateway like Stripe. <strong>Orbital Migrations</strong> covers merchants already running on a legacy JPM product (Orbital or HPS) who are moving to a modern J.P. Morgan Payments API. In every case the skills drive the conversation, generate the OAuth module, and wire up the target J.P. Morgan Payments API.</p>
 
     <div class="callout callout-block callout-info">
       <strong>What you're seeing:</strong> a project opened in an Agent harness, driven entirely by the skills' conversational flow. The merchant types one short prompt to start; everything after is multiple-choice answers and the skill generating code in the merchant's project. The generated code is a starting point — every file should be reviewed by a qualified engineer before being deployed (see <a href="limitations.html">limitations &amp; disclaimers</a>).
@@ -114,7 +114,7 @@
     </div>
 
     <section id="tab-integrations" class="subtab-panel active" role="tabpanel">
-      <p>The <strong>Integrations</strong> track is for merchants coming to J.P. Morgan from outside — whether they're starting from an empty codebase or migrating off a third-party gateway. The skills confirm credentials, generate the OAuth module, and wire up the target JPM Payments API, so the merchant can stand up a working integration and validate in CAT in minutes.</p>
+      <p>The <strong>Integrations</strong> track is for merchants coming to J.P. Morgan from outside — whether they're starting from an empty codebase or migrating off a third-party gateway. The skills confirm credentials, generate the OAuth module, and wire up the target J.P. Morgan Payments API, so the merchant can stand up a working integration and validate in CAT in minutes.</p>
 
       <h2>Greenfield Merchandise Store</h2>
 
@@ -162,7 +162,7 @@
     </section>
 
     <section id="tab-orbital" class="subtab-panel" role="tabpanel">
-      <p>The <strong>Orbital Migrations</strong> track is for merchants already running on a legacy J.P. Morgan product — the Orbital gateway or the Hosted Payments Solution (HPS) — who want to move to a modern JPM Payments API. Rather than a rip-and-replace rewrite, the skills map the concepts the merchant already knows from the legacy product onto the new API surface and generate the OAuth and integration wiring.</p>
+      <p>The <strong>Orbital Migrations</strong> track is for merchants already running on a legacy J.P. Morgan product — the Orbital gateway or the Hosted Payments Solution (HPS) — who want to move to a modern J.P. Morgan Payments API. Rather than a rip-and-replace rewrite, the skills map the concepts the merchant already knows from the legacy product onto the new API surface and generate the OAuth and integration wiring.</p>
 
       <h2>Orbital to Online Payments Migration</h2>
 
@@ -202,7 +202,7 @@
         </video>
 
         <div class="pitch">
-          <strong>Why it matters:</strong> the skills aren't tied to a single starting point or product. Greenfield builds and legacy migrations (Orbital, HPS, and others) all run through the same conversational flow. The skills' scope is limited to integrating JPM Payments APIs into the merchant's project; they don't build the rest of the business logic.
+          <strong>Why it matters:</strong> the skills aren't tied to a single starting point or product. Greenfield builds and legacy migrations (Orbital, HPS, and others) all run through the same conversational flow. The skills' scope is limited to integrating J.P. Morgan Payments APIs into the merchant's project; they don't build the rest of the business logic.
         </div>
       </div>
     </section>
@@ -212,7 +212,7 @@
       <li><strong>Time-to-first-CAT-transaction collapses from days to minutes.</strong> No reading the JPM API reference cover-to-cover, no copy-pasting OAuth boilerplate, no field-constraint trial and error.</li>
       <li><strong>Minimal prompting.</strong> The merchant types one short prompt to kick off the conversation; the skill drives the rest with multiple-choice questions.</li>
       <li><strong>Best-practice patterns by default.</strong> The generated OAuth module caches access tokens with an in-flight mutex (avoiding the per-request token regen anti-pattern), and the Checkout integration imports the auth module rather than re-implementing it. <strong>The output is a starting point, not production code</strong> — every generated file must be reviewed by a qualified engineer before deployment. See the <a href="limitations.html">limitations &amp; disclaimers</a>.</li>
-      <li><strong>Works across more than the demos shown.</strong> D2C merchandise and retail are two examples — the skills don't hard-code a vertical and adapt to what the merchant describes (subscription commerce, marketplaces, B2B, ticketing, donations, services, and others). <em>Scope:</em> integrating JPMorgan Payments APIs into the merchant's project. The skills don't build the rest of the business logic — that's still the merchant's work.</li>
+      <li><strong>Works across more than the demos shown.</strong> D2C merchandise and retail are two examples — the skills don't hard-code a vertical and adapt to what the merchant describes (subscription commerce, marketplaces, B2B, ticketing, donations, services, and others). <em>Scope:</em> integrating J.P. Morgan Payments APIs into the merchant's project. The skills don't build the rest of the business logic — that's still the merchant's work.</li>
       <li><strong>The merchant stays in their own codebase.</strong> Nothing leaves their machine. Credentials stay in their <code>.env</code>.</li>
     </ul>
 

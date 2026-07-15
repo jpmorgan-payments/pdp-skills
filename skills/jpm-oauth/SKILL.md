@@ -1,6 +1,6 @@
 ---
 name: jpm-oauth
-description: Implement JPM Payments OAuth authentication (JWT signing + IDAnywhere token exchange) in a merchant project. Use this skill when a merchant has their clientId, certificate, private key, and SHA-1 thumbprint and wants to generate the auth code in their codebase — typically right after running jpm-integrations-get-started. Produces a language-specific auth module with built-in token caching that follows JPM guidance against regenerating tokens per request. Supports Node/TypeScript, Python, and Java idiomatically; for other languages, translates from the canonical algorithm. Asks for target environment (CAT or PROD) and JWT TTL (defaults: 6 months for CAT, 8h for PROD per JPM guidance); the resource_id is read from the merchant's `.env` at runtime rather than collected interactively.
+description: Implement J.P. Morgan Payments OAuth authentication (JWT signing + IDAnywhere token exchange) in a merchant project. Use this skill when a merchant has their clientId, certificate, private key, and SHA-1 thumbprint and wants to generate the auth code in their codebase — typically right after running jpm-integrations-get-started. Produces a language-specific auth module with built-in token caching that follows JPM guidance against regenerating tokens per request. Supports Node/TypeScript, Python, and Java idiomatically; for other languages, translates from the canonical algorithm. Asks for target environment (CAT or PROD) and JWT TTL (defaults: 6 months for CAT, 8h for PROD per JPM guidance); the resource_id is read from the merchant's `.env` at runtime rather than collected interactively.
 ---
 
 # JPM OAuth implementation
@@ -133,7 +133,7 @@ Then proceed to Step 8.
 
 Auth is now wired up. Ask whether the user wants to keep going into API integration in this same session:
 
-- Question: "Auth is in place. Want to integrate a JPM Payments API now?"
+- Question: "Auth is in place. Want to integrate a J.P. Morgan Payments API now?"
 - Header: "Integrate API?"
 - Options:
   - "Yes — pick an API to integrate (Checkout or Online Payments)"
