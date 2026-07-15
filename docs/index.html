@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J.P. Morgan Payments Skills — Documentation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">J.P. Morgan Payments Skills</a>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="demos.html">Demos</a>
+      <a href="setup.html">Setup &amp; Installation</a>
+      <a href="usage.html">Usage &amp; Prompts</a>
+      <a href="limitations.html">Limitations</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>J.P. Morgan Payments Skills</h1>
+    <p class="subtitle">Agent Skills that provide a conversational experience to walk you from getting started with
+      J.P. Morgan Payments APIs to integrating with new ones and expanding your integration.</p>
+
+    <p>This is a set of <a href="https://agentskills.io/" target="_blank" rel="noopener">Agent Skills</a> that give
+      <strong>GitHub Copilot</strong>, <strong>Claude Code</strong>, <strong>Cursor</strong>, and other Agent harnesses
+      procedural knowledge of J.P. Morgan's Payments Developer Portal (PDP) APIs. Once installed, the agent can guide you through
+      getting started, generate a working OAuth module, integrate Checkout or Online Payments, and help you expand the
+      integration with new APIs over time — without you having to re-read the docs.</p>
+
+    <h2>What's Included</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>What It Does</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>jpm-integrations-get-started</code></td>
+          <td>Get started with J.P. Morgan Payments. Acknowledges the disclaimer, captures your goal, confirms requirements
+            to get started, and prepares your project's <code>.env</code>.</td>
+        </tr>
+        <tr>
+          <td><code>jpm-oauth</code></td>
+          <td>Generates a working OAuth (JWT signing + IDAnywhere token exchange) module in your project, with token
+            caching baked in.</td>
+        </tr>
+        <tr>
+          <td><code>jpm-merchant-integrations</code></td>
+          <td>Walks you through one API integration at a time, then helps you expand by adding new APIs. Initial release
+            supports <strong>Checkout</strong> and <strong>Online Payments</strong>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The skills chain together — each hands off to the next when ready — and each also works on its own.</p>
+
+    <h2>API Coverage</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>API</th>
+          <th>Capabilities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Checkout</strong></td>
+          <td>Drop-in UI, Hosted Payments Page, checkout sessions, capture methods</td>
+        </tr>
+        <tr>
+          <td><strong>Online Payments</strong></td>
+          <td>Auth, capture, void, refund; card, wallet, and APM payment methods; 3-D Secure</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-info">
+      <strong>More APIs coming soon</strong> — Tokenization, Reporting, and others are planned for future releases.
+    </div>
+
+    <h2>Supported Agent Harnesses</h2>
+    <div class="card-grid">
+      <a href="setup.html#claude-code" class="card">
+        <h3>Claude Code</h3>
+        <p>Plugin install via <code>/plugin marketplace add</code>, or copy into <code>.claude/skills/</code>.</p>
+      </a>
+      <a href="setup.html#copilot" class="card">
+        <h3>GitHub Copilot</h3>
+        <p>Auto-discovered from <code>.github/skills/</code>. Works in VS Code &amp; JetBrains.</p>
+      </a>
+      <a href="setup.html#cursor" class="card">
+        <h3>Cursor</h3>
+        <p>Loaded from <code>.cursor/skills/</code>. Same Agent Skills open format.</p>
+      </a>
+      <a href="setup.html#other" class="card">
+        <h3>Other Agent Harnesses</h3>
+        <p>Any harness that supports the Agent Skills open format. Check your harness's docs for the canonical skills directory.</p>
+      </a>
+    </div>
+
+    <h2>Quick Start</h2>
+    <ol>
+      <li>Review the <a href="limitations.html">limitations and disclaimers</a></li>
+      <li><a href="setup.html">Install the skills</a> for your agent</li>
+      <li><a href="usage.html">Ask your agent</a> about J.P. Morgan Payments — the skills trigger automatically</li>
+    </ol>
+  </main>
+</body>
+
+</html>

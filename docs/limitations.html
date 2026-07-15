@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limitations &amp; Disclaimers — J.P. Morgan Payments Skills</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-brand">J.P. Morgan Payments Skills</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="demos.html">Demos</a>
+      <a href="setup.html">Setup &amp; Installation</a>
+      <a href="usage.html">Usage &amp; Prompts</a>
+      <a href="limitations.html" class="active">Limitations</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>Limitations &amp; Disclaimers</h1>
+    <p class="subtitle">Important information about what these skills can and cannot do.</p>
+
+    <h2>Limitations</h2>
+
+    <h3>Guidance Only — Not a Live API Client</h3>
+    <p>These skills provide procedural guidance to your agent and generate code in your project. They do
+      <strong>not</strong> make live API calls, connect to any JPM environment, or process real transactions. All
+      generated code is illustrative and must be tested against the actual API in CAT before being used in PROD.</p>
+
+    <h3>Point-in-Time Documentation</h3>
+    <p>While the skill references draw from the J.P. Morgan Payments Developer Portal, the skill itself may contain
+      outdated docs or references. Always cross-reference with the <strong>latest official JPM documentation</strong>
+      before deploying to production.</p>
+
+    <h3>No Sandbox or Test Credentials</h3>
+    <p>These skills do not include or provide sandbox credentials, API keys, or test merchant accounts. You must obtain
+      your own credentials directly from J.P. Morgan — reach out to your Relationship Manager (RM).</p>
+
+    <h3>Limited API Surface</h3>
+    <p>The skills currently cover:</p>
+    <ul>
+      <li>Getting started with J.P. Morgan Payments APIs (<code>jpm-integrations-get-started</code>)</li>
+      <li>OAuth 2.0 + JWT authentication (<code>jpm-oauth</code>)</li>
+      <li>Checkout — Drop-in UI and Hosted Payments Page (<code>jpm-merchant-integrations</code>)</li>
+      <li>Online Payments — card payments lifecycle (<code>jpm-merchant-integrations</code>)</li>
+    </ul>
+    <p>More APIs are <strong>coming soon</strong>, including Tokenization, Reporting, and others.</p>
+
+    <h3>AI-Generated Code Requires Review</h3>
+    <p><strong>Do not deploy AI-generated code without thorough review and testing.</strong> Even with these skills
+      loaded, the agent can produce code that is incorrect, incomplete, or insecure. Possible issues include:</p>
+    <ul>
+      <li>Incorrect field values, formats, or enum constants</li>
+      <li>Missing required headers, parameters, or authentication steps</li>
+      <li>Outdated or invalid endpoint URLs</li>
+      <li>Security vulnerabilities (e.g., exposing credentials client-side, improper token storage)</li>
+      <li>Logic errors in payment flows (e.g., capturing before authorization)</li>
+    </ul>
+    <p><strong>You are responsible for validating all generated code.</strong> Always test against JPM's CAT
+      environment, cross-reference with official documentation, and have your code reviewed by a team member before
+      moving to production. Treat AI output as a starting point — not as production-ready code.</p>
+
+    <h3>No Guaranteed Trigger</h3>
+    <p>The skills rely on the AI agent's description-matching heuristics to determine when each one is relevant. In some
+      cases, a skill may not load automatically if your prompt is ambiguous. Use the <a href="usage.html">explicit slash
+        command</a> to force loading when needed.</p>
+
+    <h2>Disclaimers</h2>
+
+    <div class="callout callout-block callout-warning">
+      <strong>Use at Your Own Risk.</strong> The code and instructions provided in this repository are intended for
+      reference purposes only. The maintainers of this repository do not assume any responsibility for any issues,
+      damages, or losses that may arise from the use of this code or instructions. By using this repository, you
+      acknowledge that:
+      <ul>
+        <li>The code may not be stable or functional.</li>
+        <li>There are no guarantees regarding the performance, reliability, or suitability of the code for any
+          particular purpose.</li>
+        <li>You are solely responsible for any consequences resulting from the use of this code.</li>
+      </ul>
+      Please proceed with caution and ensure you understand the implications of using this code in your projects.
+    </div>
+
+    <div class="callout callout-block callout-warning">
+      <strong>No Warranty.</strong> These skills are provided "as is" without warranty of any kind, express or implied.
+      The authors are not liable for any damages arising from the use of these skills or code generated with their
+      assistance.
+    </div>
+
+    <div class="callout callout-block callout-warning">
+      <strong>Not Financial or Legal Advice.</strong> Nothing in these skills constitutes financial, legal, or
+      compliance advice. Payment integrations may be subject to regulatory requirements (PCI-DSS, PSD2, local
+      regulations) that these skills do not address.
+    </div>
+
+    <h2>Responsible Use</h2>
+    <ul>
+      <li><strong>Validate all generated code</strong> against the official <a href="https://developer.jpmorgan.com"
+          target="_blank" rel="noopener">J.P. Morgan Payments Developer Portal</a> before production use.</li>
+      <li><strong>Never commit credentials</strong> (API keys, client secrets, JWTs, certificates, private keys) to
+        version control — even in test environments.</li>
+      <li><strong>Follow PCI-DSS requirements</strong> for handling cardholder data. The skills may suggest patterns;
+        your implementation must be compliant.</li>
+      <li><strong>Smoke test in CAT before PROD.</strong> Each integration in <code>jpm-merchant-integrations</code>
+        includes a CAT test recipe — run it before flipping any production switch.</li>
+      <li><strong>Keep the skills updated</strong> as JPM releases new API versions. Stale documentation leads to
+        incorrect guidance.</li>
+      <li><strong>Report issues</strong> if you notice outdated or incorrect information in the skill references.</li>
+    </ul>
+  </main>
+</body>
+
+</html>
