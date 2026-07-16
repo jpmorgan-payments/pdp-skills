@@ -24,7 +24,7 @@ If invoked standalone, ask:
   - "Yes — I already have a working `getAccessToken()` (or equivalent)"
   - "No — I haven't set up auth yet"
 
-If **No**: tell the user to run `jpm-onboarding-intake` first (it will hand off to `jpm-oauth`), then come back here. Exit.
+If **No**: tell the user to run `jpm-integrations-get-started` first (it will hand off to `jpm-oauth`), then come back here. Exit.
 
 If **Yes** but the auth module path isn't in conversation context, ask where the module lives so the integration code can import from it.
 
