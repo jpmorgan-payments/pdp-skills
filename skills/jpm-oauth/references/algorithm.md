@@ -18,8 +18,8 @@ The CAT vs PROD distinction is encoded in the `resource` field and the credentia
 | Field | Value |
 |---|---|
 | `grant_type` | `client_credentials` |
-| `client_id` | the merchant's clientId, e.g. `CC-105239-A047367-276513-PROD` |
-| `resource` | the resource_id from the JPM onboarding email, e.g. `JPMC:URI:RS-105239-85484-HelixAPIEntitlementsCAT-PROD` |
+| `client_id` | the merchant's clientId, e.g. `CC-000000-A000000-000000-PROD` |
+| `resource` | the resource_id from the JPM onboarding email, e.g. `JPMC:URI:RS-000000-00000-HelixAPIEntitlementsCAT-PROD` |
 | `client_assertion_type` | `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` (literal) |
 | `client_assertion` | the signed JWT, see below |
 
@@ -86,7 +86,7 @@ The JWT itself can be reused across multiple token exchanges as long as it's sti
 
 The resource_id encodes both the API surface and the environment. Examples (the merchant's RM provides the exact string in the onboarding email):
 
-- CAT entitlements:  `JPMC:URI:RS-105239-<FID>-HelixAPIEntitlementsCAT-PROD`
-- PROD entitlements: `JPMC:URI:RS-105239-<FID>-HelixAPIEntitlements-PROD`
+- CAT entitlements:  `JPMC:URI:RS-000000-<FID>-HelixAPIEntitlementsCAT-PROD`
+- PROD entitlements: `JPMC:URI:RS-000000-<FID>-HelixAPIEntitlements-PROD`
 
 Note that some merchants get distinct resource IDs per API (Checkout, Reporting, Tokenization, etc.). Treat the resource_id as a string the merchant configures via env var — never hardcode in source.
