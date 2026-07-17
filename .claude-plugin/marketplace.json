@@ -1,14 +1,14 @@
 {
   "name": "jpm-payments-skills",
   "version": "1.0.0",
-  "description": "J.P. Morgan Payments developer-experience marketplace. Distributes the jpm-payments-skills plugin (merchant onboarding/OAuth/Checkout/Online Payments, plus Embedded Payments EF&S API integrations) for Claude Code and GitHub Copilot.",
+  "description": "J.P. Morgan Payments developer-experience marketplace. Distributes the jpm-payments-skills plugin (onboarding intake, OAuth code generation, and Checkout / Online Payments integration) for Claude Code and GitHub Copilot.",
   "owner": {
     "name": "J.P. Morgan Payments"
   },
   "plugins": [
     {
       "name": "jpm-payments-skills",
-      "description": "Conversational agent skills for J.P. Morgan Payments merchants (onboarding, OAuth, Checkout, Online Payments) and Embedded Payments / EF&S API integrations (onboarding, accounts, recipients, transactions, webhooks).",
+      "description": "Conversational agent skills that walk a merchant from J.P. Morgan Payments onboarding through a working API integration. Supports Checkout and Online Payments in the initial release. Generates language-specific OAuth modules (Node/TypeScript, Python, Java idiomatic; other languages via canonical algorithm).",
       "version": "1.0.0",
       "source": "./",
       "license": "Apache-2.0",
@@ -24,9 +24,6 @@
         "jwt",
         "checkout",
         "online-payments",
-        "embedded-finance",
-        "embedded-payments",
-        "efs",
         "integration"
       ],
       "homepage": "https://github.com/jpmorgan-payments/pdp-skills",
