@@ -12,7 +12,7 @@ This skill is typically invoked from the end of `jpm-integrations-get-started` (
 ## Step 1 — Verify prerequisites
 
 The merchant must have all four of:
-- **clientId** (e.g. `CC-000000-A000000-000000-PROD`)
+- **clientId** (e.g. `CC-123456-D12992-232222-TEST`)
 - **certificate path** (PEM `.cer` from JPM)
 - **private key path** (PEM key paired with the certificate)
 - **SHA-1 thumbprint** of the cert (40 hex chars; colons optional — code will normalize)
