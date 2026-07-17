@@ -10,6 +10,13 @@
         "jpm-oauth",
         "jpm-merchant-integrations"
       ]
+    },
+    {
+      "title": "Embedded Finance & Solutions",
+      "description": "API integration skill for J.P. Morgan Embedded Payments (EF&S) — onboarding, accounts, recipients, transactions, and webhooks.",
+      "skills": [
+        "efs-integrations"
+      ]
     }
   ]
 }
